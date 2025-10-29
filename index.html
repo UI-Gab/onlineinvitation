@@ -60,23 +60,26 @@
     <!-- START OF MAIN CONTAINER -->
     <div class="mainContainer">
         <div class="bdaybanner">
-            <img src="images/banner-elements.png" class="banner-elements" alt="" data-aos="fade-left" data-aos-duration="2000">
-            <img src="images/banner-title.png" class="banner-title" alt="" data-aos="fade-right" data-aos-duration="2000">
+            <img src="images/banner-elements.png" class="banner-elements roll-animation" alt="" data-aos="fade-left" data-aos-duration="2000">
+            <img src="images/banner-title.png" class="banner-title pulse-animation" alt="" data-aos="fade-right" data-aos-duration="2000">
         </div>
 
         <div class="bdaydetails">
             <div class="bday-message" data-aos="fade-right" data-aos-duration="1000">
-                <p class="text-center">🏈 TOUCHDOWN! YOU’RE INVITED! 🏈<br><br>
-                Get ready to kick off the fun and celebrate Matteo’s 7th Birthday! 🎉<br>
-                Join our team for a game day full of laughter, snacks, and winning memories — because this birthday is going to be a real touchdown celebration! 🏆</p>
+                <p class="text-center">⚽️ GOOOAAAL! YOU’RE INVITED! ⚽️<br><br>
+                Kick off the fun and celebrate Harley's 7th Birthday with us! 🥳<br>
+                Join our all-star team for an action-packed day filled with games, laughter, and birthday cheer — it’s going to be a real championship celebration! 🏆</p>
             </div>
-            <div class="bday-date" data-aos="fade-left" data-aos-duration="1000">October 29 WEDNESDAY 5PM</div>
-            <div class="bday-venue" data-aos="fade-right" data-aos-duration="1000">Turf Court, Manila Polo Club</div>
-            <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">RSVP: Events Plus Manila
+            <div class="bday-date" data-aos="fade-left" data-aos-duration="1000">📅 October 29 WEDNESDAY 🕒 5PM</div>
+            <div class="bday-venue" data-aos="fade-right" data-aos-duration="1000">📍 Turf Court, Manila Polo Club
                 <br><br>
-                <label for="message" class="form-label">Message:</label>
-                <textarea id="message" class="form-control" rows="4" placeholder="Type your message here..."></textarea>
-                <button id="sendBtn" class="btn-submit" type="button" aria-label="Send SMS">SEND RSVP</button>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.9618671007015!2d121.03706637574055!3d14.54417337845435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c8e6ca3b4205%3A0x570adabb1574c91!2sManila%20Polo%20Club!5e0!3m2!1sen!2sph!4v1761747872535!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">RSVP: Events Plus Manila
+                <br>
+                <button id="smsBtn" class="btn-submit" type="button" aria-label="Send SMS">RSVP VIA SMS</button>
             </div>
             
 
@@ -99,25 +102,29 @@
 AOS.init();
 
 // === CONFIGURE THESE ===
-    // === CONFIGURATION ===
-    const phoneNumber = '+1234567890'; // replace with the actual number
-    // =====================
+    const number = '+639172449670';        // put target phone number here (include country code if needed)
+    const body = ""; // default SMS body
+    // =======================
 
-    document.getElementById('sendBtn').addEventListener('click', () => {
-      const text = document.getElementById('message').value.trim();
-      if (!text) {
-        alert('Please type a message first.');
-        return;
-      }
+    function openSmsApp() {
+      // Ensure body is URL encoded
+      const encoded = encodeURIComponent(body);
 
-      const encoded = encodeURIComponent(text);
+      // Safari/iOS historically expects the body parameter separated with &:
       const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      const smsLink = isiOS
-        ? `sms:${phoneNumber}&body=${encoded}`
-        : `sms:${phoneNumber}?body=${encoded}`;
 
-      // Open the SMS app
-      window.location.href = smsLink;
-    });
+      // Compose the URI depending on platform
+      const uri = isiOS
+        ? `sms:${number}&body=${encoded}`
+        : `sms:${number}?body=${encoded}`;
+
+      // As a fallback for some clients, also provide 'sms:' without body
+      // We'll first try to navigate to the composed URI.
+      window.location.href = uri;
+
+      // Some desktop browsers won't do anything — no harm done.
+    }
+
+    document.getElementById('smsBtn').addEventListener('click', openSmsApp);
 </script>
 </html>
