@@ -101,7 +101,9 @@ a {
 }
 
 .mainContainer {
-    
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
 /* Banner */
