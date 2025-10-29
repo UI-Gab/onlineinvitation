@@ -100,10 +100,18 @@ a {
     color: var(--box-color);
 }
 
+.mainContainer {
+    
+}
 
 /* Banner */
 .bdaybanner {
-    margin: 80px 5px;
+    background-color: transparent;
+    background-image: url(../../images/banner-bg.png);
+    background-size: 170%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding: 110px 5px 0;
 }
 .banner-elements {
     width: 80%;
@@ -117,6 +125,28 @@ a {
     margin: -20px auto 0;
     display: block;
     z-index: -1;
+}
+
+.bdaydetails {
+    background-image: url(../../images/background.jpg);
+    height: 100vh;
+    background-position: center;
+    background-size: 120%;
+    color: #fff;
+    margin-top: -100px;
+    z-index: -1;
+    position: relative;
+    padding-top: 150px;
+    text-align: center;
+}
+
+.bdaydetails > div {
+    background-color: darkgreen;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px dashed white;
+    width: 90%;
+    margin: 8px auto;
 }
 
 

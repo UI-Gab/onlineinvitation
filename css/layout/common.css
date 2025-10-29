@@ -23,13 +23,9 @@ html {
 body {
     font-family: var(--body-font-family);
     color: var(--main-font-color);
-    background-color: #0e5111;
-    background-image: url(../../images/banner-bg.png);
-    background-size: 170%;
-    background-position: center top;
-    background-repeat: no-repeat;
-    height: 100vh;
 }
+
+
 
 .primary-btn {
     text-transform: uppercase;
