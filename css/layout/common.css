@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+:root {
+  /* --main-background-color: #e8eae3;
+  --main-font-color: #373833;
+  --main-accent-color: #fa2742; */
+
+  --main-background-color: #FDF6EF;
+  --box-color: #4D59E3;
+  --main-font-color: #000;
+  --accent-color: #ED4059 ;
+  --secondary-accent-color: #C6E354;
+  --title-font-family: "Mightybagher", serif;
+  --heading-font-family: "GrandParadiso", serif;
+  --body-font-family: 'Krona One', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--body-font-family);
+    color: var(--main-font-color);
+    background-color: #0e5111;
+    background-image: url(../../images/banner-bg.png);
+    background-size: 170%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.primary-btn {
+    text-transform: uppercase;
+    background-color: var(--box-color);
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+}
+.primary-btn i {
+    margin-left: 8px;
+}
+
+/* Header */
+header {
+    /* background-color: var(--accent-color); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+.logo {
+    margin: 0;
+}
+header button {
+    background-color: var(--secondary-accent-color);
+    padding: 5px 10px;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+}
+header button i {
+    margin: 0;
+}
+
+
+/* Main Banner */
+.main-banner {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+.text-banner {
+    text-align: center;
+}
+.splash-img {
+    width: 100%;
+    margin: 20px auto;
+}
+
+
+/* Cards */
+.card {
+    padding: 20px;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 20px;
+    border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+}
+
+.title {
+    font-family: var(--title-font-family);
+    font-weight: 900;
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+}
+.heading {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+.profile-img {
+    width: 80%;
+    border-radius: 170px;
+    height: 370px;
+    margin: 30px auto;
+    display: block;
+}
+
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    .cards-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .cards-wrapper > * {
+        width: 48%;
+    }
+}
+
+

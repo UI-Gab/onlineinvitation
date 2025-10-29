@@ -1,0 +1,25 @@
+/*** Font setting ***/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Krona+One&display=swap');
+
+@font-face {
+  font-family: "GrandParadiso";
+  src: url('../../fonts/GrandParadiso.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Magical";
+  src: url('../../fonts/MagicalSignature.otf') format('truetype');
+}
+@font-face {
+  font-family: "Milchella";
+  src: url('../../fonts/Milchella-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Monalisa";
+  src: url('../../fonts/Monalisa-Serif.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Mightybagher";
+  src: url('../../fonts/MightybagherdemoRegular.otf') format('truetype');
+}
