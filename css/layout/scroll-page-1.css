@@ -145,12 +145,25 @@ a {
     font-size: .8rem;
 }
 .bdaydetails > div {
-    background-color: darkgreen;
+    background-color: #93202f;
     padding: 10px;
     margin: 10px 0;
     border: 1px dashed white;
     width: 90%;
     margin: 8px auto;
+}
+
+.btn-submit {
+    border: none;
+    outline: 0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #fdca28;
+    color: #000;
+    font-weight: 900;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 240px;
 }
 
 

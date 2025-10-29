@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="vendor/bootstrap-v5.2.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="vendor/aos/css/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
 
     <!-- Style CSS -->
@@ -63,14 +66,19 @@
 
         <div class="bdaydetails">
             <div class="bday-message" data-aos="fade-right" data-aos-duration="1000">
-                <p>🏈 TOUCHDOWN! YOU’RE INVITED! 🏈<br>
+                <p class="text-center">🏈 TOUCHDOWN! YOU’RE INVITED! 🏈<br><br>
                 Get ready to kick off the fun and celebrate Matteo’s 7th Birthday! 🎉<br>
                 Join our team for a game day full of laughter, snacks, and winning memories — because this birthday is going to be a real touchdown celebration! 🏆</p>
             </div>
             <div class="bday-date" data-aos="fade-left" data-aos-duration="1000">October 29 WEDNESDAY 5PM</div>
             <div class="bday-venue" data-aos="fade-right" data-aos-duration="1000">Turf Court, Manila Polo Club</div>
-            <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">RSVP: Events Plus Manila</div>
-            <button id="smsBtn" type="button" aria-label="Send SMS"  data-aos="fade-up" data-aos-duration="1000">SEND RSVP</button>
+            <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">RSVP: Events Plus Manila
+                <br><br>
+                <label for="message" class="form-label">Message:</label>
+                <textarea id="message" class="form-control" rows="4" placeholder="Type your message here..."></textarea>
+                <button id="sendBtn" class="btn-submit" type="button" aria-label="Send SMS">SEND RSVP</button>
+            </div>
+            
 
         </div>
 
@@ -91,29 +99,25 @@
 AOS.init();
 
 // === CONFIGURE THESE ===
-    const number = '+1234567890';        // put target phone number here (include country code if needed)
-    const body = "Hi Ms. Olive"; // default SMS body
-    // =======================
+    // === CONFIGURATION ===
+    const phoneNumber = '+1234567890'; // replace with the actual number
+    // =====================
 
-    function openSmsApp() {
-      // Ensure body is URL encoded
-      const encoded = encodeURIComponent(body);
+    document.getElementById('sendBtn').addEventListener('click', () => {
+      const text = document.getElementById('message').value.trim();
+      if (!text) {
+        alert('Please type a message first.');
+        return;
+      }
 
-      // Safari/iOS historically expects the body parameter separated with &:
+      const encoded = encodeURIComponent(text);
       const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const smsLink = isiOS
+        ? `sms:${phoneNumber}&body=${encoded}`
+        : `sms:${phoneNumber}?body=${encoded}`;
 
-      // Compose the URI depending on platform
-      const uri = isiOS
-        ? `sms:${number}&body=${encoded}`
-        : `sms:${number}?body=${encoded}`;
-
-      // As a fallback for some clients, also provide 'sms:' without body
-      // We'll first try to navigate to the composed URI.
-      window.location.href = uri;
-
-      // Some desktop browsers won't do anything — no harm done.
-    }
-
-    document.getElementById('smsBtn').addEventListener('click', openSmsApp);
+      // Open the SMS app
+      window.location.href = smsLink;
+    });
 </script>
 </html>
