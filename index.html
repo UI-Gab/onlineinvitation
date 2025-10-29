@@ -65,6 +65,8 @@
             <div class="bday-date">October 29 WEDNESDAY 5PM</div>
             <div class="bday-venue">Turf Court, Manila Polo Club</div>
             <div class="bday-rsvp">RSVP: Events Plus Manila</div>
+            <button id="smsBtn" type="button" aria-label="Send SMS">SEND RSVP</button>
+
         </div>
 
 
@@ -82,5 +84,31 @@
 <!-- End of Modals -->
 <script>
 AOS.init();
+
+// === CONFIGURE THESE ===
+    const number = '+1234567890';        // put target phone number here (include country code if needed)
+    const body = "Hi! I'd like to place an order."; // default SMS body
+    // =======================
+
+    function openSmsApp() {
+      // Ensure body is URL encoded
+      const encoded = encodeURIComponent(body);
+
+      // Safari/iOS historically expects the body parameter separated with &:
+      const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      // Compose the URI depending on platform
+      const uri = isiOS
+        ? `sms:${number}&body=${encoded}`
+        : `sms:${number}?body=${encoded}`;
+
+      // As a fallback for some clients, also provide 'sms:' without body
+      // We'll first try to navigate to the composed URI.
+      window.location.href = uri;
+
+      // Some desktop browsers won't do anything — no harm done.
+    }
+
+    document.getElementById('smsBtn').addEventListener('click', openSmsApp);
 </script>
 </html>
