@@ -77,16 +77,26 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.9618671007015!2d121.03706637574055!3d14.54417337845435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c8e6ca3b4205%3A0x570adabb1574c91!2sManila%20Polo%20Club!5e0!3m2!1sen!2sph!4v1761747872535!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">RSVP: Events Plus Manila
+            <div class="bday-rsvp d-none" data-aos="fade-left" data-aos-duration="1000">RSVP: Events Plus Manila
                 <br>
                 <button id="smsBtn" class="btn-submit" type="button" aria-label="Send SMS">RSVP VIA SMS</button>
             </div>
-            
+
+
+            <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">
+                <form id="rsvpForm">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
+
+                    <label>Will you attend?</label><br>
+                    <label><input type="radio" name="rsvp" value="YES" required> Yes</label>
+                    <label><input type="radio" name="rsvp" value="NO" required> No</label><br><br>
+
+                    <button type="submit">Submit</button>
+                </form>   
+            </div>         
 
         </div>
-
-
-
     </div>
     <!-- END OF MAIN CONTAINER -->
 
@@ -100,6 +110,29 @@
 <!-- End of Modals -->
 <script>
 AOS.init();
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbxs5ZJeM-eb3HsU8atAPMfY-z7Wrf4qC7Rbd1gL5RXlqV2tlFbSB1_kljDbsyC5myc/exec";
+
+    document.getElementById("rsvpForm").addEventListener("submit", e => {
+        e.preventDefault();
+
+        const data = {
+        name: document.getElementById("name").value,
+        rsvp: document.querySelector('input[name="rsvp"]:checked').value
+        };
+
+        fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+        })
+        .then(() => alert("✅ Thank you! Your response has been recorded."))
+        .catch(err => alert("❌ Something went wrong: " + err));
+    });
+
+
+
 
 // === CONFIGURE THESE ===
     const number = '+639172449670';        // put target phone number here (include country code if needed)
