@@ -128,7 +128,7 @@
 
 
             <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">
-                <form id="rsvpForm">
+                <!-- <form id="rsvpForm">
                     <label for="name">Name:</label><br>
                     <input type="text" id="name" name="name" required><br><br>
                     <label for="pax">Number of Guests (Including yourself):</label><br>
@@ -139,16 +139,30 @@
                     <label><input type="radio" name="rsvp" value="NO" required> No</label><br><br>
 
                     <button type="submit">Submit</button>
-                </form>   
+                </form>    -->
+
+                <form id="rsvpForm">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
+
+                    <label>Will you attend?</label><br>
+                    <label><input type="radio" name="rsvp" value="YES" required> Yes</label><br>
+                    <label><input type="radio" name="rsvp" value="NO" required> No</label><br><br>
+
+                    <!-- This section is hidden until "YES" is selected -->
+                    <div id="pax-container" style="display: none;">
+                        <label for="pax">Number of Guests (Including yourself):</label><br>
+                        <input type="number" id="pax" name="pax" min="1" placeholder="Enter number of guests"><br><br>
+                    </div>
+
+                    <button type="submit">Submit</button>
+                </form>
 
              <!-- Overlay with loading spinner -->
             <div id="overlay">
             <img src="images/banner-elements.png" class="banner-elements roll-animation aos-init aos-animate" style="width: 50px;">
             <p>Submitting RSVP…</p>
-            </div>
-            
-            
-
+            </div>       
 
         </div>
     </div>
@@ -169,18 +183,39 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbxh_FUu_yYmmFmHqhuXqG
 
     const form = document.getElementById("rsvpForm");
     const overlay = document.getElementById("overlay");
+    const paxContainer = document.getElementById("pax-container");
+    const paxInput = document.getElementById("pax");
 
+    // Show/hide PAX field depending on RSVP selection
+    form.addEventListener("change", () => {
+        const rsvp = document.querySelector('input[name="rsvp"]:checked');
+        if (rsvp && rsvp.value === "YES") {
+        paxContainer.style.display = "block";
+        paxInput.required = true;
+        } else {
+        paxContainer.style.display = "none";
+        paxInput.required = false;
+        paxInput.value = ""; // clear when hidden
+        }
+    });
+
+    // Form submission handler
     form.addEventListener("submit", e => {
         e.preventDefault();
 
         // Disable interaction + show spinner
         overlay.style.display = "flex";
 
-        const data = {
-        name: document.getElementById("name").value.trim(),
-        pax: document.getElementById("pax").value,
-        rsvp: document.querySelector('input[name="rsvp"]:checked').value
-        };
+        const name = document.getElementById("name").value.trim();
+        const rsvp = document.querySelector('input[name="rsvp"]:checked').value;
+        let pax = paxInput.value.trim();
+
+        // Default pax = 0 if RSVP is NO or left blank
+        if (rsvp === "NO" || pax === "") {
+        pax = 0;
+        }
+
+        const data = { name, pax, rsvp };
 
         fetch(scriptURL, {
         method: 'POST',
