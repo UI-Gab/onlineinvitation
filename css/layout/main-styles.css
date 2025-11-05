@@ -18,16 +18,19 @@ h2 {
     background-image: url(../../images/banner-bg.png);
     background-size: 160%;
     background-position: center top;
+    background-position-y: -60px;
     background-repeat: no-repeat;
     padding: 140px 5px 0;
 }
 .banner-elements {
-    max-width: 190px;
+    max-width: 130px;
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto 0 50%;
     display: block;
     position: relative;
+    z-index: 1;
 }
+
 
 /* Rolling animation */
   @keyframes roll {
@@ -49,7 +52,8 @@ h2 {
     width: 100%;
     margin: -20px auto 0;
     display: block;
-    z-index: -1;
+    z-index: 2;
+    position: relative;
 }
 
 @keyframes pulse {
@@ -72,6 +76,13 @@ h2 {
     animation: pulse 4s ease-in-out infinite;
     transform-origin: center center;
   }
+
+.banner-jersey {
+    width: 60%;
+    position: absolute;
+    top: 3%;
+    left: 11%;
+}
 
 .bdaydetails {
     background-image: url(../../images/background.jpg);
@@ -219,10 +230,6 @@ h2 {
   }
 
 
-
-
-
-
 @-webkit-keyframes fall {
     0% {
       top: -60px;
@@ -257,6 +264,12 @@ h2 {
     .bdaybanner {
         background-size: 140%;
     }
+    .banner-title {
+        margin: -10px auto 0;
+    }
+    .banner-jersey {
+      max-width: 280px;
+    }
         
 }
 
@@ -268,14 +281,19 @@ h2 {
 
 
 
-@media screen and (min-width: 768px) {
-    
+@media screen and (min-width: 768px) {    
     .bdaybanner {
         background-size: 100%;
         background-position-y: -20px;
     }
+    .banner-elements {
+      margin: 0 auto 0 55%;
+    }
     .banner-title {
-        max-width: 680px;
+        max-width: 640px;
+    }
+    .banner-jersey {
+        left: 27%;
     }
     .bdaydetails > div {
         max-width: 500px;
@@ -284,8 +302,19 @@ h2 {
 
 @media screen and (min-width: 991px) {
     .bdaybanner {
-        margin-top: -40px;
         padding-bottom: 140px;
+        background-position-y: 0;
+        padding-top: 140px;
+    }
+    .banner-elements {
+      max-width: 150px;
+      margin: 60px auto 0 52%;
+    }
+    .banner-title {
+        max-width: 720px;
+    }
+    .banner-jersey {
+        max-width: 340px;
     }
 
     .bdaydetails {
@@ -309,20 +338,23 @@ h2 {
 
 @media screen and (min-width: 1200px) {
     .bdaybanner {
-        background-position-y: -90px;
+        background-position-y: -40px;
         margin-top: -80px;
     }
     .banner-elements {
-        max-width: 220px;
+        margin: 120px auto -13px 53%;
     }
     .banner-title {
         max-width: 750px;
+    }
+    .banner-jersey {
+        left: 31%;
     }
 }
 
 @media screen and (min-width: 1366px) {
     .bdaybanner {
-        background-position-y: -210px;
+        background-position-y: -140px;
     }
     .bdaydetails {
         padding: 100px 200px 250px;
@@ -337,13 +369,19 @@ h2 {
 
 @media screen and (min-width: 1600px) {
     .bdaybanner {
-        background-position-y: -350px;
+        background-position-y: -290px;
+    }
+    .banner-jersey {
+        left: 35%;
     }
 }
 
 @media screen and (min-width: 1920px) {
     .bdaybanner {
-        background-position-y: -550px;
+        background-position-y: -490px;
+    }
+    .banner-jersey {
+        left: 38%;
     }
 
     .bdaydetails {
