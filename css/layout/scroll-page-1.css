@@ -106,11 +106,15 @@ a {
     z-index: 1;
 }
 
+h2 {
+    font-family: "Racing Sans One", sans-serif;
+}
+
 /* Banner */
 .bdaybanner {
     background-color: transparent;
     background-image: url(../../images/banner-bg.png);
-    background-size: 140%;
+    background-size: 160%;
     background-position: center top;
     background-repeat: no-repeat;
     padding: 140px 5px 0;
@@ -182,12 +186,16 @@ a {
     text-align: left;
 }
 .bdaydetails > div {
-    background-color: #004797;
+    background-color: #a4142f;
     padding: 10px;
     margin: 10px 0;
     border: 1px dashed white;
     width: 90%;
     margin: 8px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .map-container {
@@ -195,6 +203,7 @@ a {
     width: 100%;
     overflow: hidden;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 80%;
 }
 
 .map-container iframe {
@@ -219,39 +228,98 @@ a {
 }
 
 
+/* Form */
+.rsvp-form {
+    padding: 30px 0;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .rsvp-form:hover {
+    transform: translateY(-3px);
+  }
+
+  .rsvp-form h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .rsvp-form p {
+    text-align: center;
+    font-size: 0.9rem;;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+  }
+
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #1976d2;
+    outline: none;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  .radio-group label {
+    font-weight: normal;
+    color: #444;
+  }
+
+  button {
+    width: 100%;
+    background: #1976d2;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 0;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  button:hover {
+    background: #1565c0;
+    transform: translateY(-2px);
+  }
+
+  #pax-container {
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
 
 
-.btn-prev {
-    position: absolute;
-    top:0;
-    margin: 0;
-    padding: 5px 20px;
-    background-color: var(--box-color);
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    z-index: 999;
-    font-size: 1.8rem;
-    -webkit-animation: linear;
-    -webkit-animation-name: fall;
-    -webkit-animation-duration: .5s;
-    display: none !important;
-}
-.btn-next {
-    position: absolute;
-    bottom: 0;
-    margin: 0;
-    padding: 5px 20px;
-    background-color: var(--box-color);
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-    z-index: 999;
-    font-size: 1.8rem;
-    -webkit-animation: linear;
-    -webkit-animation-name: rise;
-    -webkit-animation-duration: .5s;
-    display: none !important;
-}
+
+
 
 @-webkit-keyframes fall {
     0% {
@@ -283,12 +351,100 @@ a {
     }
   }
 
+@media screen and (min-width: 480px) {
+    .bdaybanner {
+        background-size: 140%;
+    }
+        
+}
+
+@media screen and (min-width: 575px) {
+    .bdaybanner {
+        background-position-y: -90px;
+    }
+}
 
 
+
+@media screen and (min-width: 768px) {
+    
+    .bdaybanner {
+        background-size: 100%;
+        background-position-y: -20px;
+    }
+    .banner-title {
+        max-width: 680px;
+    }
+    .bdaydetails > div {
+        max-width: 500px;
+    }
+}
 
 @media screen and (min-width: 991px) {
-    .btn-prev,
-    .btn-next {
-        display: block !important;
+    .bdaybanner {
+        margin-top: -40px;
+        padding-bottom: 140px;
+    }
+
+    .bdaydetails {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-size: 50%;
+        width: 100%;
+        padding: 100px 0 150px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .bdaydetails {
+        padding: 100px 30px 250px;
+    }
+    .bdaydetails > div {
+        max-width: 450px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .bdaybanner {
+        background-position-y: -90px;
+        margin-top: -80px;
+    }
+    .banner-elements {
+        max-width: 220px;
+    }
+    .banner-title {
+        max-width: 750px;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    .bdaybanner {
+        background-position-y: -210px;
+    }
+    .bdaydetails {
+        padding: 100px 200px 250px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .bdaybanner {
+        background-position-y: -250px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .bdaybanner {
+        background-position-y: -350px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .bdaybanner {
+        background-position-y: -550px;
+    }
+
+    .bdaydetails {
+        padding: 100px 460px 250px;
     }
 }

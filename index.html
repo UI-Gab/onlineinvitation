@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="vendor/bootstrap-v5.2.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="vendor/aos/css/aos.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Racing+Sans+One&display=swap" rel="stylesheet">
 
 
     <!-- Style CSS -->
@@ -103,175 +104,217 @@
 
     <!-- START OF MAIN CONTAINER -->
     <div class="mainContainer">
+
+        <!-- Start of Banner -->
         <div class="bdaybanner">
             <img src="images/banner-elements.png" class="banner-elements roll-animation" alt="" data-aos="fade-left" data-aos-duration="2000">
             <img src="images/banner-title.png" class="banner-title pulse-animation" alt="" data-aos="fade-right" data-aos-duration="2000">
         </div>
+        <!-- End of Banner -->
 
+        <!-- Start of Details -->
         <div class="bdaydetails">
+
+            <!-- Start of Birthday Message -->
             <div class="bday-message" data-aos="fade-right" data-aos-duration="1000">
-                <p class="text-center">⚽️ GOOOAAAL! YOU’RE INVITED! ⚽️<br><br>
+                <h2 class="text-center">⚽️ GOOOAAAL! YOU’RE INVITED! ⚽️</h2>
+                <p class="text-center">
                 Kick off the fun and celebrate Harley's 7th Birthday with us! 🥳<br>
                 Join our all-star team for an action-packed day filled with games, laughter, and birthday cheer — it’s going to be a real championship celebration! 🏆</p>
             </div>
-            <div class="bday-date" data-aos="fade-left" data-aos-duration="1000">📅 October 29 WEDNESDAY 🕒 5PM</div>
-            <div class="bday-venue" data-aos="fade-right" data-aos-duration="1000">📍 Turf Court, Manila Polo Club
+            <!-- End of Birthday Message -->
+
+            <!-- Start of Date -->
+            <div class="bday-date" data-aos="fade-left" data-aos-duration="1000">📅 December 21 SUNDAY 🕒 11AM - 3PM</div>
+            <!-- End of Date -->
+
+            <!-- Start of Venue -->
+            <div class="bday-venue" data-aos="fade-right" data-aos-duration="1000">📍 Marina Baytown East Clubhouse
                 <br><br>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.9618671007015!2d121.03706637574055!3d14.54417337845435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c8e6ca3b4205%3A0x570adabb1574c91!2sManila%20Polo%20Club!5e0!3m2!1sen!2sph!4v1761747872535!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.5978033406136!2d120.98373407574006!3d14.507763179341511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cd9c93e82759%3A0x60b32416357590e7!2sMarina%20Baytown%20East%20-%20Club%20House!5e0!3m2!1sen!2sph!4v1762315516662!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <div class="bday-rsvp d-none" data-aos="fade-left" data-aos-duration="1000">RSVP: Events Plus Manila
-                <br>
-                <button id="smsBtn" class="btn-submit" type="button" aria-label="Send SMS">RSVP VIA SMS</button>
-            </div>
+            <!-- End of Venue -->
 
-
+            <!-- Start of RSVP Form -->
             <div class="bday-rsvp" data-aos="fade-left" data-aos-duration="1000">
-                <!-- <form id="rsvpForm">
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required><br><br>
-                    <label for="pax">Number of Guests (Including yourself):</label><br>
-                    <input type="number" id="pax" name="pax" min="1" required><br><br>
+                <form id="rsvpForm" class="rsvp-form">
+                    <h2>RSVP Now</h2>
+                    <p>Please let us know if you’ll be joining Harley's birthday celebration 🎉</p>
 
-                    <label>Will you attend?</label><br>
-                    <label><input type="radio" name="rsvp" value="YES" required> Yes</label><br>
-                    <label><input type="radio" name="rsvp" value="NO" required> No</label><br><br>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" class="form-control" required><br><br>
 
-                    <button type="submit">Submit</button>
-                </form>    -->
+                    <label class="form-label">Will you attend?</label>
+                    <div class="form-check form-check-inline">
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rsvp" id="rsvpYes" value="YES" required>
+                        <label class="form-check-label" for="rsvpYes">Yes</label>
+                        </div><br><br>
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rsvp" id="rsvpNo" value="NO" required>
+                        <label class="form-check-label" for="rsvpNo">No</label>
+                        </div>                        
+                    </div>
 
-                <form id="rsvpForm">
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
-
-                    <label>Will you attend?</label><br>
-                    <label><input type="radio" name="rsvp" value="YES" required> Yes</label><br>
-                    <label><input type="radio" name="rsvp" value="NO" required> No</label><br><br>
 
                     <!-- This section is hidden until "YES" is selected -->
                     <div id="pax-container" style="display: none;">
-                        <label for="pax">Number of Guests (Including yourself):</label><br>
-                        <input type="number" id="pax" name="pax" min="1" placeholder="Enter number of guests"><br><br>
+                        <label for="pax" class="form-label">Number of Guests (Including yourself):</label>
+                        <input type="number" id="pax" name="pax" min="1" placeholder="Enter number of guests" class="form-control"><br><br>
                     </div>
 
-                    <button type="submit">Submit</button>
-                </form>
+                    <button type="submit" class="btn btn-primary">Submit</button>                </form>
 
-             <!-- Overlay with loading spinner -->
-            <div id="overlay">
-            <img src="images/banner-elements.png" class="banner-elements roll-animation aos-init aos-animate" style="width: 50px;">
-            <p>Submitting RSVP…</p>
-            </div>       
+
+
+                <!-- Overlay with loading spinner -->
+                <div id="overlay">
+                <img src="images/banner-elements.png" class="banner-elements roll-animation aos-init aos-animate" style="width: 50px;">
+                <p>Submitting RSVP…</p>
+                </div>   
+            </div>
+            <!-- End of RSVP Form -->
 
         </div>
+        <!-- End of Details -->
     </div>
     <!-- END OF MAIN CONTAINER -->
-
-    <!-- START OF FOOTER -->
-    <footer></footer>
-    <!-- END OF FOOTER -->
 
 </body>
 
 <!-- Modals -->
+<!-- ❌ Validation Modal -->
+<div class="modal fade" id="validationModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-danger">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">Form Incomplete</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="validationMessage"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-success">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">⚽ GOALLL!! RSVP Received!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        🎉 Thank you for your response! Your RSVP has been successfully submitted.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Great!</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- End of Modals -->
+
 <script>
 AOS.init();
 
 const scriptURL = "https://script.google.com/macros/s/AKfycbxh_FUu_yYmmFmHqhuXqGe2eO1eIymDTAHx3TuCQeYFaagUzUcbQv1O1Scj_VFZYCVR/exec";
 
-    const form = document.getElementById("rsvpForm");
-    const overlay = document.getElementById("overlay");
-    const paxContainer = document.getElementById("pax-container");
-    const paxInput = document.getElementById("pax");
+const form = document.getElementById("rsvpForm");
+const overlay = document.getElementById("overlay");
+const paxContainer = document.getElementById("pax-container");
+const paxInput = document.getElementById("pax");
 
-    // Show/hide PAX field depending on RSVP selection
-    form.addEventListener("change", () => {
-        const rsvp = document.querySelector('input[name="rsvp"]:checked');
-        if (rsvp && rsvp.value === "YES") {
-        paxContainer.style.display = "block";
-        paxInput.required = true;
-        } else {
-        paxContainer.style.display = "none";
-        paxInput.required = false;
-        paxInput.value = ""; // clear when hidden
-        }
-    });
+const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
+const validationMessage = document.getElementById('validationMessage');
+const successModal = new bootstrap.Modal(document.getElementById('successModal'));
 
-    // Form submission handler
-    form.addEventListener("submit", e => {
-        e.preventDefault();
+// Show/hide PAX field depending on RSVP selection
+form.addEventListener("change", () => {
+  const rsvp = document.querySelector('input[name="rsvp"]:checked');
+  if (rsvp && rsvp.value === "YES") {
+    paxContainer.style.display = "block";
+    paxInput.required = true;
+  } else {
+    paxContainer.style.display = "none";
+    paxInput.required = false;
+    paxInput.value = "";
+  }
+});
 
-        // Disable interaction + show spinner
-        overlay.style.display = "flex";
+// Form submission handler
+form.addEventListener("submit", e => {
+  e.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const rsvp = document.querySelector('input[name="rsvp"]:checked').value;
-        let pax = paxInput.value.trim();
+  const name = document.getElementById("name").value.trim();
+  const rsvpField = document.querySelector('input[name="rsvp"]:checked');
+  const rsvp = rsvpField ? rsvpField.value : null;
+  let pax = paxInput.value.trim();
 
-        // Default pax = 0 if RSVP is NO or left blank
-        if (rsvp === "NO" || pax === "") {
-        pax = 0;
-        }
+  // Validation logic
+  if (!name) {
+    validationMessage.textContent = "Please enter your name before submitting.";
+    validationModal.show();
+    return;
+  }
+  if (!rsvp) {
+    validationMessage.textContent = "Please select YES or NO for attendance.";
+    validationModal.show();
+    return;
+  }
+  if (rsvp === "YES" && pax === "") {
+    validationMessage.textContent = "Please enter the number of guests if you’re attending.";
+    validationModal.show();
+    return;
+  }
 
-        const data = { name, pax, rsvp };
+  // Default pax = 0 if RSVP is NO or left blank
+  if (rsvp === "NO" || pax === "") pax = 0;
 
-        fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-        })
-        .then(() => {
-        alert("✅ Thank you! Your RSVP has been recorded.");
-        })
-        .catch(err => {
-        alert("❌ Something went wrong: " + err);
-        })
-        .finally(() => {
-        // Re-enable interaction + hide spinner
-        overlay.style.display = "none";
-        });
-    });
+  const data = { name, pax, rsvp };
 
-    // Spinner animation
-    const style = document.createElement("style");
-    style.textContent = `
-        @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-        }
-    `;
-    document.head.appendChild(style);
+  // Disable interaction + show spinner
+  overlay.style.display = "flex";
+
+  fetch(scriptURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    successModal.show(); // ✅ Show success modal instead of alert
+    form.reset();
+    paxContainer.style.display = "none";
+  })
+  .catch(err => {
+    validationMessage.textContent = "❌ Something went wrong: " + err;
+    validationModal.show();
+  })
+  .finally(() => {
+    // Re-enable interaction + hide spinner
+    overlay.style.display = "none";
+  });
+});
+
+// Spinner animation
+const style = document.createElement("style");
+style.textContent = `
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(style);
 
 
 
 
-// === CONFIGURE THESE ===
-    const number = '+639172449670';        // put target phone number here (include country code if needed)
-    const body = ""; // default SMS body
-    // =======================
 
-    function openSmsApp() {
-      // Ensure body is URL encoded
-      const encoded = encodeURIComponent(body);
-
-      // Safari/iOS historically expects the body parameter separated with &:
-      const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      // Compose the URI depending on platform
-      const uri = isiOS
-        ? `sms:${number}&body=${encoded}`
-        : `sms:${number}?body=${encoded}`;
-
-      // As a fallback for some clients, also provide 'sms:' without body
-      // We'll first try to navigate to the composed URI.
-      window.location.href = uri;
-
-      // Some desktop browsers won't do anything — no harm done.
-    }
-
-    document.getElementById('smsBtn').addEventListener('click', openSmsApp);
 </script>
 </html>
