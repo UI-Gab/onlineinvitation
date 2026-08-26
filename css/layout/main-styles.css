@@ -120,7 +120,7 @@ h2 span {
     width: 100%;
     overflow: hidden;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 80%;
+    height: auto;
 }
 
 .map-container iframe {
@@ -278,20 +278,14 @@ h2 span {
 }
 
 @media screen and (min-width: 575px) {
-    .bdaybanner {
-        background-position-y: -90px;
-    }
+
 }
 
 
 
 @media screen and (min-width: 768px) {    
-    .bdaybanner {
-        background-size: 100%;
-        background-position-y: -20px;
-    }
     .banner-elements {
-      margin: 0 auto 0 55%;
+        max-width: 250px;
     }
     .banner-title {
         max-width: 640px;
@@ -306,13 +300,11 @@ h2 span {
 
 @media screen and (min-width: 991px) {
     .bdaybanner {
-        padding-bottom: 140px;
-        background-position-y: 0;
-        padding-top: 140px;
+        padding-bottom: 80px;
+        background-size: 100%;
     }
     .banner-elements {
-      max-width: 150px;
-      margin: 60px auto 0 52%;
+
     }
     .banner-title {
         max-width: 720px;
@@ -329,6 +321,8 @@ h2 span {
         width: 100%;
         padding: 100px 0 150px;
     }
+
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -341,18 +335,15 @@ h2 span {
 }
 
 @media screen and (min-width: 1200px) {
-    .bdaybanner {
-        background-position-y: -40px;
-        margin-top: -80px;
-    }
+
     .banner-elements {
-        margin: 120px auto -13px 53%;
     }
     .banner-title {
         max-width: 750px;
     }
-    .banner-jersey {
-        left: 31%;
+
+    .bdaydetails > div {
+        max-width: 550px;
     }
 }
 
@@ -362,33 +353,34 @@ h2 span {
     }
     .bdaydetails {
         padding: 100px 200px 250px;
+        padding: 100px 0 200px;
+    }
+    .bdaydetails > div {
+        max-width: 660px;
+        padding: 50px;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    .bdaybanner {
-        background-position-y: -250px;
-    }
+
 }
 
 @media screen and (min-width: 1600px) {
-    .bdaybanner {
-        background-position-y: -290px;
+    .banner-elements {
+        max-width: 300px;
     }
-    .banner-jersey {
-        left: 35%;
-    }
+
+
 }
 
 @media screen and (min-width: 1920px) {
     .bdaybanner {
-        background-position-y: -490px;
+        background-position-y: -240px;
     }
-    .banner-jersey {
-        left: 38%;
-    }
-
     .bdaydetails {
         padding: 100px 460px 250px;
+        padding: 100px 0 350px;
+        max-width: 1350px;
+        margin: 0 auto;
     }
 }

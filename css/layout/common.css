@@ -19,4 +19,5 @@ html {
 body {
     font-family: var(--body-font-family);
     color: var(--main-font-color);
+    background-color: #69b256;
 }
