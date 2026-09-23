@@ -17,7 +17,6 @@ h2 span {
 
 /* Banner */
 .bdaybanner {
-    background-color: #69b256;
     background-image: url(../../images/banner-bg.jpg);
     background-size: 190%;
     background-position: center top;
@@ -32,6 +31,7 @@ h2 span {
     display: block;
     position: relative;
     z-index: 1;
+    opacity: 1 !important;
 }
 
 
@@ -89,7 +89,6 @@ h2 span {
 
 .bdaydetails {
     background-position: center;
-    background-color: #69b256;
     background-size: 120%;
     color: #333;
     margin-top: -100px;
@@ -102,7 +101,7 @@ h2 span {
     text-align: left;
 }
 .bdaydetails > div {
-    background-color: #7cd4f8;
+    background-color: #f1ddb8;
     padding: 10px;
     margin: 10px 0;
     border: 1px dashed white;
@@ -114,6 +113,9 @@ h2 span {
     flex-wrap: wrap;
     border-radius: 15px;
 }
+.bdaydetails > div .btn-primary {
+
+} 
 
 .map-container {
     position: relative;
