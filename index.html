@@ -120,8 +120,8 @@
 
             <!-- Start of Birthday Message -->
             <div class="bday-message" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="text-center">⛳️ HOLE IN ONE! ⛳️<span>YOU’RE INVITED!</span></h2>
-                <p class="text-center">You are invited to Alonzo Javier C. Pineda's 1st Birthday celebration.<br>
+                <h2 class="text-center">HOLE IN ONE! ⛳️</h2>
+                <p class="text-center invite-message">You are invited to <span>Alonzo Javier C. Pineda's</span> 1st Birthday celebration.<br>
                   Join our all-star field for an action-packed day filled with swings, laughter, and birthday cheer! It’s going to be a real championship celebration! 🏆</p>
             </div>
             <!-- End of Birthday Message -->
@@ -166,6 +166,8 @@
                     <div id="pax-container" style="display: none;">
                         <label for="pax" class="form-label">Number of Guests (Including yourself):</label>
                         <input type="number" id="pax" name="pax" min="1" placeholder="Enter number of guests" class="form-control"><br><br>
+                        <label for="pax" class="form-label">Name of Guests (separate with a comma if multiple):</label>
+                        <textarea name="message" id="message" class="form-control"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>                </form>
@@ -232,6 +234,7 @@ const form = document.getElementById("rsvpForm");
 const overlay = document.getElementById("overlay");
 const paxContainer = document.getElementById("pax-container");
 const paxInput = document.getElementById("pax");
+const messageInput = document.getElementById("message"); 
 
 const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
 const validationMessage = document.getElementById('validationMessage');
@@ -258,6 +261,7 @@ form.addEventListener("submit", e => {
   const rsvpField = document.querySelector('input[name="rsvp"]:checked');
   const rsvp = rsvpField ? rsvpField.value : null;
   let pax = paxInput.value.trim();
+  const message = messageInput ? messageInput.value.trim() : "";
 
   // Validation logic
   if (!name) {
@@ -279,7 +283,7 @@ form.addEventListener("submit", e => {
   // Default pax = 0 if RSVP is NO or left blank
   if (rsvp === "NO" || pax === "") pax = 0;
 
-  const data = { name, pax, rsvp };
+  const data = { name, pax, rsvp, message };
 
   // Disable interaction + show spinner
   overlay.style.display = "flex";
