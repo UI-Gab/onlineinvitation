@@ -166,8 +166,10 @@
                     <div id="pax-container" style="display: none;">
                         <label for="pax" class="form-label">Number of Guests (Including yourself):</label>
                         <input type="number" id="pax" name="pax" min="1" max="5" placeholder="Enter number of guests" class="form-control"><br><br>
-                        <label for="pax" class="form-label">Name of Guests (separate with a comma if multiple):</label>
-                        <textarea name="message" id="message" class="form-control" required></textarea>
+                        <label for="pax" class="form-label">Name of Adult Guests (separate with a comma if multiple):</label>
+                        <textarea name="message" id="message" class="form-control" required></textarea><br><br>
+                        <label for="pax" class="form-label">Name of Children Guests (separate with a comma if multiple):</label>
+                        <textarea name="message" id="notes" class="form-control" required></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>                </form>
@@ -235,6 +237,7 @@ const overlay = document.getElementById("overlay");
 const paxContainer = document.getElementById("pax-container");
 const paxInput = document.getElementById("pax");
 const messageInput = document.getElementById("message"); 
+const notesInput = document.getElementById("notes"); //
 
 const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
 const validationMessage = document.getElementById('validationMessage');
@@ -262,6 +265,7 @@ form.addEventListener("submit", e => {
   const rsvp = rsvpField ? rsvpField.value : null;
   let pax = paxInput.value.trim();
   const message = messageInput ? messageInput.value.trim() : "";
+  const notes = notesInput ? notesInput.value.trim() : "";
 
   // Validation logic
   if (!name) {
@@ -283,7 +287,7 @@ form.addEventListener("submit", e => {
   // Default pax = 0 if RSVP is NO or left blank
   if (rsvp === "NO" || pax === "") pax = 0;
 
-  const data = { name, pax, rsvp, message };
+  const data = { name, pax, rsvp, message, notes };
 
   // Disable interaction + show spinner
   overlay.style.display = "flex";
